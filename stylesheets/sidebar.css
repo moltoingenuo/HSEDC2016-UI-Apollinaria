@@ -15,8 +15,13 @@
   overflow-y: scroll;
 }
 
-.sidebarSubmenu {
-  display: none;
+.sidebarMenuItem {
+  position: relative;
+  height: 50px;
+}
+
+.sidebarMenuItem:hover {
+  height: auto;
 }
 
 .sidebarMenuItem:hover .sidebarSubmenu {
@@ -24,9 +29,10 @@
 }
 
 .sidebarMenuItem > div {
+  position: relative;
   width: 300px;
   height: 50px;
-  padding: 10px;
+  padding: 10px 10px 10px 60px;
   line-height: 30px;
 }
 
@@ -34,12 +40,52 @@
   background: lightgrey;
 }
 
+.sidebarMenuItem::before {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 1;
+  display: block;
+  width: 40px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  font-family: FontAwesome;
+  text-align: center;
+}
+
+.sidebarMenuItem:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.sidebarMenuItem.apple::before      { content: '\f179'; }
+.sidebarMenuItem.behance::before    { content: '\f1b4'; }
+.sidebarMenuItem.dropbox::before    { content: '\f16b'; }
+.sidebarMenuItem.facebook::before   { content: '\f09a'; }
+.sidebarMenuItem.git::before        { content: '\f1d3'; }
+.sidebarMenuItem.github::before     { content: '\f113'; }
+.sidebarMenuItem.medium::before     { content: '\f23a'; }
+.sidebarMenuItem.instagram::before  { content: '\f16d'; }
+.sidebarMenuItem.pinterest::before  { content: '\f0d2'; }
+.sidebarMenuItem.soundcloud::before { content: '\f1be'; }
+.sidebarMenuItem.mode::before       { content: '\f053'; }
+
+.sidebarSubmenu {
+  display: none;
+}
+
 .sidebarSubmenuItem {
   height: 50px;
-  padding: 10px 10px 10px 20px;
+  padding: 10px 10px 10px 60px;
   line-height: 30px;
 }
 
 .sidebarSubmenuItem:hover {
   background: lightgrey;
+}
+
+.sidebarSubmenuItem:first-child {
+  display: none;
 }
